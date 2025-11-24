@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+motor==3.5.1
+pydantic==1.10.15
+python-multipart==0.0.9
+python-dotenv==1.0.1
+pymongo==4.7.2
+pydantic-settings
+
+google-auth==2.31.0
+google-api-python-client==2.136.0
+google-auth-httplib2==0.2.0
