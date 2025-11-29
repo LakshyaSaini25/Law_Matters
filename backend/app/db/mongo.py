@@ -1,5 +1,5 @@
 # app/db/mongo.py
-from motor.motor_asyncio import AsyncIOMotorClient
+from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from typing import Optional
 from ..core.config import settings
 
@@ -15,8 +15,14 @@ def get_client() -> AsyncIOMotorClient:
         _client = AsyncIOMotorClient(settings.mongo_uri)
     return _client
 
-def get_db():
+def get_db() -> AsyncIOMotorDatabase:
     """
     Return the configured database object.
     """
     return get_client()[settings.mongo_db]
+
+async def get_database() -> AsyncIOMotorDatabase:
+    """
+    Dependency for FastAPI to inject database into route handlers.
+    """
+    return get_db()
